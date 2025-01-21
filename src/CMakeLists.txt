@@ -1,3 +1,7 @@
 cmake_minimum_required(VERSION 3.12)
 add_library(cppstudysrc INTERFACE)
-target_include_directories(cppstudysrc INTERFACE multithreading)
+target_include_directories( cppstudysrc 
+                            INTERFACE 
+                            multithreading
+                            core
+)
