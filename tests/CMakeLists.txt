@@ -17,7 +17,9 @@ enable_testing()
 
 add_executable(${TEST_TARGET}
   threadsafesharedpointer_test.cpp
+  sudoku_test.cpp
 )
+
 target_link_libraries(${TEST_TARGET}
   GTest::gtest_main
   cppstudysrc
