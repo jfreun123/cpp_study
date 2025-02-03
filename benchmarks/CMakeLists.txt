@@ -10,6 +10,7 @@ FetchContent_MakeAvailable(benchmark)
 
 add_executable(${BENCHMARK_TARGET}
   hello.cpp
+  branch.cpp
 )
 
 target_link_libraries(${BENCHMARK_TARGET}
