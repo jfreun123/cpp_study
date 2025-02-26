@@ -16,8 +16,9 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 add_executable(${TEST_TARGET}
-  threadsafesharedpointer_test.cpp
+  spinlock_test.cpp
   sudoku_test.cpp
+  threadsafesharedpointer_test.cpp
 )
 
 target_link_libraries(${TEST_TARGET}
