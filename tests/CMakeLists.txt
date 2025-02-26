@@ -16,6 +16,7 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 add_executable(${TEST_TARGET}
+  primes_test.cpp
   spinlock_test.cpp
   sudoku_test.cpp
   threadsafesharedpointer_test.cpp
