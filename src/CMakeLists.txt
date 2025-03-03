@@ -4,5 +4,6 @@ target_include_directories( cppstudysrc
                             ${CMAKE_CURRENT_SOURCE_DIR}/core
                             ${CMAKE_CURRENT_SOURCE_DIR}/multithreading
                             ${CMAKE_CURRENT_SOURCE_DIR}/prime
+                            ${CMAKE_CURRENT_SOURCE_DIR}/set_intersection
                             ${CMAKE_CURRENT_SOURCE_DIR}/sudoku
 )
