@@ -20,28 +20,29 @@ namespace SetIntersection
         {
             for (int i{}; i < n; i++)
             {
-                // empty list found we can just return
-                if (index[i] == sets[i].size())
-                {
-                    return res;
-                }
-
                 // "remove" dumb indecies.  These will never have an intersection.
+                //  note:  an if statement here is not enough. Need an if statement.
+                //  This is so that the next time we process set i-1 we can be sure
+                //  of intersection.
                 while (index[i] < sets[i].size() && sets[i][index[i]] < currMax)
                 {
                     index[i]++;
                 }
 
+                //  return if we are done.
+                if (index[i] == sets[i].size())
+                {
+                    return res;
+                }
+
+                //  if we see our max:
+                //  update the counter and move on
                 if (sets[i][index[i]] == currMax)
                 {
                     counter++;
+                    index[i]++;
                     if (counter == n)
                     {
-                        // everyone can take a step together
-                        for (int j{}; j < n; j++)
-                        {
-                            index[j]++;
-                        }
                         res.push_back(currMax);
                     }
                 }

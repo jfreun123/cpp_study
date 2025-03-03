@@ -39,3 +39,21 @@ TEST(SetIntersection, MediumPartTwo)
     std::vector<int> out{3};
     EXPECT_EQ(SetIntersection::intersectKSortedSets(in), out);
 }
+
+TEST(SetIntersection, MediumPartThree)
+{
+    std::vector<std::vector<int>> in{{{2, 3},
+                                      {-1, 0, 1},
+                                      {2, 3, 4}}};
+    std::vector<int> out{};
+    EXPECT_EQ(SetIntersection::intersectKSortedSets(in), out);
+}
+
+TEST(SetIntersection, EdgeCase)
+{
+    std::vector<std::vector<int>> in{{{2, 3},
+                                      {},
+                                      {2, 3, 4}}};
+    std::vector<int> out{};
+    EXPECT_EQ(SetIntersection::intersectKSortedSets(in), out);
+}
