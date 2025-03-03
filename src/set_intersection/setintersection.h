@@ -1,11 +1,12 @@
 #pragma once
 
 // STD
+#include <optional>
 #include <vector>
 
 namespace SetIntersection
 {
-    static std::vector<int> intersectKSortedSets(const std::vector<std::vector<int>> &sets)
+    std::vector<int> intersectKSortedSets(const std::vector<std::vector<int>> &sets)
     {
         const int n = sets.size();
         if (0 == n)
@@ -18,40 +19,51 @@ namespace SetIntersection
         int counter{};
         while (true)
         {
-            bool isDoneAfterLevel = false;
-            for (int i{}; i < n; i++)
+            bool isDone = false;
+            std::optional<int> currMax = 0;
+            int counter = 0;
+
+            // Find the current max among the indices
+            for (int i = 0; i < n; i++)
             {
-                // update the indexs
-                while (index[i] < sets[i].size() && sets[i][index[i]] < currMax)
-                {
-                    index[i]++;
-                }
-
-                if (sets[i][index[i]] == currMax)
-                {
-                    counter++;
-                    if (counter == n)
-                    {
-                        index[i]++;
-                        res.push_back(currMax);
-                    }
-                }
-                else if (sets[i][index[i]] > currMax)
-                {
-                    currMax = sets[i][index[i]];
-                    counter = 1;
-                    index[i]++;
-                }
-
                 if (index[i] == sets[i].size())
                 {
-                    isDoneAfterLevel = true;
+                    return res; // One list is exhausted, return result
+                }
+
+                if (not currMax.has_value() || sets[i][index[i]] > currMax.value())
+                {
+                    currMax = sets[i][index[i]];
+                    counter = 1; // Reset counter for a new max
+                }
+                else if (sets[i][index[i]] == currMax)
+                {
+                    counter++;
                 }
             }
 
-            if (isDoneAfterLevel)
+            // If all arrays have the same current max, add it to the result
+            if (counter == n)
             {
-                return res;
+                res.push_back(currMax.value());
+                for (int i = 0; i < n; i++)
+                {
+                    if (index[i] < sets[i].size() && sets[i][index[i]] == currMax)
+                    {
+                        index[i]++; // Move forward in each list that contained currMax
+                    }
+                }
+            }
+            else
+            {
+                // Advance pointers past elements < currMax
+                for (int i = 0; i < n; i++)
+                {
+                    while (index[i] < sets[i].size() && sets[i][index[i]] < currMax)
+                    {
+                        index[i]++;
+                    }
+                }
             }
         }
         return {};
