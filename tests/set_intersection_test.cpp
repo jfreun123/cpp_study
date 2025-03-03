@@ -14,6 +14,15 @@ TEST(SetIntersection, Simple)
     EXPECT_EQ(SetIntersection::intersectKSortedSets(in), out);
 }
 
+TEST(SetIntersection, SimplePartTwo)
+{
+    std::vector<std::vector<int>> in{{{2, 3},
+                                      {0, 1, 3},
+                                      {2, 3, 4}}};
+    std::vector<int> out{3};
+    EXPECT_EQ(SetIntersection::intersectKSortedSets(in), out);
+}
+
 TEST(SetIntersection, Medium)
 {
     std::vector<std::vector<int>> in{{{2, 3}, {0, 1, 2, 3}, {2, 3, 4}}};
