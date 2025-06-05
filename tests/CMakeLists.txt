@@ -16,6 +16,7 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 add_executable(${TEST_TARGET}
+  lisp_parser_test.cpp
   primes_test.cpp
   set_intersection_test.cpp
   spinlock_test.cpp
