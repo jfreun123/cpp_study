@@ -4,6 +4,9 @@
 // Gtest
 #include <gtest/gtest.h>
 
+// STD
+#include <thread>
+
 TEST(SpinLock, SingleThreaded)
 {
     SpinLock lock;

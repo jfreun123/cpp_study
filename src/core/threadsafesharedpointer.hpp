@@ -3,6 +3,7 @@
 #include <atomic>
 #include <utility> // For std::exchange
 #include <new>     // For std::destroy_at
+#include <memory>
 
 namespace core
 {

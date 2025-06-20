@@ -7,6 +7,7 @@
 #include <ranges>
 #include <unordered_set>
 #include <vector>
+#include <numeric>
 
 constexpr int size = 9;
 constexpr int numberOfIntegers = 10; // 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
